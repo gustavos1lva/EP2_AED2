@@ -4,19 +4,19 @@ import java.util.Random;
 
 public class Digrafo {
 
-    private int v = 0;
+    int v = 0;
     private int a = 0;
-    List<Arco>[] vertices;
+    Vertice[] vertices;
 
     public Digrafo(int v){
         this.v = v;
-        vertices = new LinkedList[v];
+        vertices = new Vertice[v];
         inicializaVertices();
     }
 
     public void inicializaVertices(){
         for (int i = 0; i < v; i++){
-            this.vertices[i] = new LinkedList<Arco>();
+            this.vertices[i] = new Vertice();
         }
     }
 
@@ -28,7 +28,7 @@ public class Digrafo {
                 if (random){
                     Random fodase = new Random();
                     int c = fodase.nextInt(k - 0);
-                    vertices[i].add(new Arco(i , j, c));
+                    vertices[i].getArcos().add(new Arco(i , j, c));
                     a++;
                 } 
             }
@@ -38,14 +38,14 @@ public class Digrafo {
     public void mostraDigrafo(){
         for (int i = 0; i < vertices.length; i++) {
             System.out.println("-----------------------------------------");
-            for (int j = 0; j < vertices[i].size(); j++) {
+            for (int j = 0; j < vertices[i].getArcos().size(); j++) {
                 if (j == 0) {
-                    System.out.println("Vertice: " + vertices[i].get(j).verticeInicio);
-                    System.out.println("Endereços dos Arco: " + vertices[i]);
-                    System.out.println("Qtd de Arcos dele: " + vertices[i].size());
+                    System.out.println("Vertice: " + vertices[i].getArco(j).verticeInicio);
+                    System.out.println("Endereços dos Arco: " + vertices[i].getArcos());
+                    System.out.println("Qtd de Arcos dele: " + vertices[i].getArcos().size());
                 }
-                System.out.println("Arco " + j + " vai pro vertice:" + vertices[i].get(j).verticeDestino);
-                System.out.println("Peso dessa aresta: " + vertices[i].get(j).peso);
+                System.out.println("Arco " + j + " vai pro vertice:" + vertices[i].getArco(j).verticeDestino);
+                System.out.println("Peso dessa aresta: " + vertices[i].getArco(j).peso);
             }
         }
     }
@@ -60,11 +60,11 @@ public class Digrafo {
         posicao[vert] = contador++;
         fila.insere(vert);
         while (!fila.filaVazia()) {
-            atual = fila.proximo();
+            atual = fila.removeMenorPrioridade();
 
             for (int j = 0; j < v; j++) {
-                for (int m = 0; m < di.vertices[atual].size(); m++) {
-                    if (di.vertices[atual].get(m).verticeDestino == j && posicao[j] == -1) {//completar verificando se um arco existe.
+                for (int m = 0; m < di.vertices[atual].getArcos().size(); m++) {
+                    if (di.vertices[atual].getArco(m).verticeDestino == j && posicao[j] == -1) {//completar verificando se um arco existe.
                         posicao[j] = contador++;
                         fila.insere(j);
                     }
