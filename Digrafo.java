@@ -45,6 +45,7 @@ public class Digrafo {
                     System.out.println("Qtd de Arcos dele: " + vertices[i].size());
                 }
                 System.out.println("Arco " + j + " vai pro vertice:" + vertices[i].get(j).verticeDestino);
+                System.out.println("Peso dessa aresta: " + vertices[i].get(j).peso);
             }
         }
     }
