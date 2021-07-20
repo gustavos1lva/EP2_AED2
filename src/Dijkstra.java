@@ -27,7 +27,7 @@ public class Dijkstra{
                     custos[w] = custos[v] + p.peso;
                     pais[w] = v;
                     c.insere(w,custos);
-                } else if(custos[w] > custos[v] + di.vertices[v].get(w).peso){
+                } else if(w < di.vertices[v].size() && custos[w] > custos[v] + di.vertices[v].get(w).peso){
                     custos[w] = custos[v] + di.vertices[v].get(w).peso;
                     pais[w] = v;
                     c.PQdec(w,custos);
@@ -36,7 +36,7 @@ public class Dijkstra{
         }
 
         for (int j = 0; j < custos.length; j++){
-            System.out.println("Vertice: " + j + " tem custo: " + custos[0] + " do vertice inicial");
+            System.out.println("Vertice: " + j + " tem custo: " + custos[j] + " do vertice inicial");
         }
 
     }

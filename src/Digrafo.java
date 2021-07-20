@@ -29,8 +29,8 @@ public class Digrafo {
                 boolean random = (Math.random() < p) ? true : false;
                 if (random){
                     Random f = new Random();
-                    int c = f.nextInt(k - 0);
-                    vertices[i].add(new Arco(i , j, k));
+                    int c = (int) Math.floor(Math.random()*(k-0+1)+0);
+                    vertices[i].add(new Arco(i , j, c));
                     a++;
                 }
             }
