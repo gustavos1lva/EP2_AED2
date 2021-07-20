@@ -9,10 +9,11 @@ public class Digrafo {
     public int k = 0;
     public List<Arco>[] vertices;
 
-    public Digrafo(int v){
+    public Digrafo(int v, int k){
         this.v = v;
         vertices = new LinkedList[v];
         inicializaVertices();
+        this.k = k;
     }
 
     public void inicializaVertices(){

@@ -28,8 +28,8 @@ public class Dijkstra{
                     custos[w] = custos[v] + p.peso;
                     pais[w] = v;
                     c.insere(w,custos);
-                } else if(w < di.vertices[v].size() && custos[w] > custos[v] + di.vertices[v].get(w).peso){
-                    custos[w] = custos[v] + di.vertices[v].get(w).peso;
+                } else if(custos[w] > custos[v] + p.peso){
+                    custos[w] = custos[v] + p.peso;
                     pais[w] = v;
                     c.PQdec(w,custos);
                 }
