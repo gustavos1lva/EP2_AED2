@@ -30,6 +30,5 @@ public class Main {
         Dijkstra dj = new Dijkstra();
         System.out.println("-------------------------------------DEPOIS DO DIJKSTRA------------------------------------------");
         dj.Djikstra(di,0);
-
     }
 }
