@@ -1,34 +1,63 @@
 public class Fila {
-    private Vertice[] fila;
-    private int inicio = 0;
-    private int fim = 0;
+
+    private int[] pq;
+    private int[] qp;
+    private int n;
 
 
-    public Fila(Digrafo	di){
-        this.fila= new Vertice[di.getV()];
+    public Fila(int max){
+        pq = new int[max + 1];
+        qp = new int[max];
+        n = 0;
     }
 
-    public boolean filaVazia(){
-        return inicio == fim;
+    public void insere(int vertice, int[] custos){
+        qp[vertice] = ++n;
+        pq[n] = vertice;
+        fixUp(n,custos);
     }
 
-    public void insere(Vertice vertice){
-        fila[fim++] = vertice;
+    public int PQdelmin(int[] custos){
+        exch(1,n,custos);
+        --n;
+        fixDown(1, custos);
+        return pq[n+1];
     }
 
-    //Garantir que a fila ta sempre organizada
-    public Vertice removeMenorPrioridade(){
-        Vertice resposta = null;
+    public void PQdec(int w, int custos[]){
+        fixUp(qp[w], custos);
+    }
 
-        int i = inicio;
-        for (int j = i + 1; j < fim; j++){
-            if (fila[i].getPrioridade() > fila[j].getPrioridade()){
-                i = j;
-            }
-            resposta = fila[i];
-            fila[i] = fila[--fim];
+    public void exch(int i, int j, int[] custos){
+        int t;
+        t = pq[i];
+        pq[i] = pq[j];
+        pq[j] = t;
+        qp[pq[i]] = i;
+        qp[pq[j]] = j;
+    }
+
+    public void fixUp(int m,int[] custos){
+        while(m > 0 && custos[pq[m/2]] > custos[pq[m]]){
+            exch(m/2,m,custos);
+            m = m/2;
         }
+    }
 
-        return resposta;
+    public void fixDown(int i, int[] custos){
+        int j;
+        while(2*i <= n){
+            j = 2*i;
+            if (j < n && custos[pq[j]] > custos[pq[j+1]]){
+                j++;
+            }
+            if (custos[pq[i]] <= custos[pq[j]]) break;
+            exch(i,j,custos);
+            i = j;
+        }
+    }
+
+    public boolean PQEmpty(){
+        return n == 0;
     }
 }
