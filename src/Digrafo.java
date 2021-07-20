@@ -11,12 +11,12 @@ public class Digrafo {
     public Digrafo(int v){
         this.v = v;
         vertices = new Vertice[v];
-        inicializaVertices();
+        inicializaVertices(vertices);
     }
 
-    public void inicializaVertices(){
+    public void inicializaVertices(Vertice[] vertices){
         for (int i = 0; i < v; i++){
-            this.vertices[i] = new Vertice();
+            vertices[i] = new Vertice(i,(int) Math.pow(10,900));
         }
     }
 
@@ -46,29 +46,6 @@ public class Digrafo {
                 }
                 System.out.println("Arco " + j + " vai pro vertice:" + vertices[i].getArco(j).verticeDestino);
                 System.out.println("Peso dessa aresta: " + vertices[i].getArco(j).peso);
-            }
-        }
-    }
-
-    public void varreduraVertice(Digrafo di, int vert) {
-        int[] posicao = new int[v];
-        int contador = 0;
-        int atual;
-        for (int i : posicao) posicao[i] = -1;
-        Fila fila = new Fila(di);
-
-        posicao[vert] = contador++;
-        fila.insere(vert);
-        while (!fila.filaVazia()) {
-            atual = fila.removeMenorPrioridade();
-
-            for (int j = 0; j < v; j++) {
-                for (int m = 0; m < di.vertices[atual].getArcos().size(); m++) {
-                    if (di.vertices[atual].getArco(m).verticeDestino == j && posicao[j] == -1) {//completar verificando se um arco existe.
-                        posicao[j] = contador++;
-                        fila.insere(j);
-                    }
-                }
             }
         }
     }

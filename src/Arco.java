@@ -1,7 +1,7 @@
 public class Arco {
     int verticeInicio;
     int verticeDestino;
-    int peso;
+    double peso;
 
     public Arco(int verticeInicio, int verticeDestino, int peso){
         this.verticeInicio = verticeInicio;

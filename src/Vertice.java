@@ -2,12 +2,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Vertice{
-    private int prioridade = (int) Math.pow(10,900);
+    private double prioridade = Math.pow(10,900);
     private int valor = 0;
     private List<Arco> arcos;
 
-    public Vertice() {
+    public Vertice(int valor, int prioridade) {
         arcos = new LinkedList();
+        this.valor = valor;
+        this.prioridade = prioridade;
     }
 
     public List<Arco> getArcos(){
@@ -17,4 +19,7 @@ public class Vertice{
         return arcos.get(i);
     }
 
+    public int getPrioridade(){
+        return prioridade;
+    }
 }
