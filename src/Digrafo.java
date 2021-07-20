@@ -21,10 +21,10 @@ public class Digrafo {
         }
     }
 
-    public void insercaoAleatoria(int n, double p, int k){
+    public void insercaoAleatoria(double p, int k){
         this.k = k;
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
+        for (int i = 0; i < v-1; i++){
+            for (int j = 0; j < v; j++){
                 if (i == j) continue;
                 boolean random = (Math.random() < p) ? true : false;
                 if (random){
@@ -40,13 +40,19 @@ public class Digrafo {
     public void mostraDigrafo(){
         for (int i = 0; i < vertices.length; i++) {
             System.out.println("-----------------------------------------");
-            for (int j = 0; j < vertices[i].size(); j++) {
-                if (j == 0) {
-                    System.out.println("Vertice: " + vertices[i].get(j).verticeInicio);
-                    System.out.println("Endereços das arestas: " + vertices[i]);
-                    System.out.println("Qtd de arestas dele: " + vertices[i].size());
+            if(vertices[i].size() != 0){
+                for (int j = 0; j < vertices[i].size(); j++) {
+                    if (j == 0) {
+                        System.out.println("Vertice: " + i);
+                        System.out.println("Endereços das arestas: " + vertices[i]);
+                        System.out.println("Qtd de arestas dele: " + vertices[i].size());
+                    }
+                    System.out.println("Aresta " + j + " vai pro vertice:" + vertices[i].get(j).verticeDestino);
                 }
-                System.out.println("Aresta " + j + " vai pro vertice:" + vertices[i].get(j).verticeDestino);
+            } else {
+                System.out.println("Vertice: " + i);
+                System.out.println("Endereços das arestas: " + vertices[i]);
+                System.out.println("Qtd de arestas dele: " + vertices[i].size());
             }
         }
     }

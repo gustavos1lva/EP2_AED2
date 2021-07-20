@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         Digrafo di = new Digrafo(5);
-        di.insercaoAleatoria(5,0.2,4);
+        di.insercaoAleatoria(0.2,4);
 
         System.out.println("Digrafo Atual: ");
         di.mostraDigrafo();
