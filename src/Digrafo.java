@@ -9,11 +9,10 @@ public class Digrafo {
     public int k = 0;
     public List<Arco>[] vertices;
 
-    public Digrafo(int v, int k){
+    public Digrafo(int v){
         this.v = v;
         vertices = new LinkedList[v];
         inicializaVertices();
-        this.k = k;
     }
 
     public void inicializaVertices(){
@@ -35,6 +34,32 @@ public class Digrafo {
                     a++;
                 }
             }
+        }
+    }
+
+    public void insercaoAleatoriaDAG(double p, int k){
+        this.k = k;
+        for (int i = 0; i < v-1; i++){
+            for (int j = i+1; j < v; j++){
+                if (i == j) continue;
+                boolean random = (Math.random() < p) ? true : false;
+                if (random){
+                    Random f = new Random();
+                    int c = (int) Math.floor(Math.random()*(k-0+1)+0);
+                    vertices[i].add(new Arco(i , j, c));
+                    a++;
+                }
+            }
+        }
+    }
+
+    public void imprimePesos(){
+        for(int i = 0; i < vertices.length;i++){
+            System.out.print(i+": ");
+            for(int j = 0; j < vertices[i].size(); j++){
+                System.out.print(vertices[i].get(j).peso + " ");
+            }
+            System.out.println("");
         }
     }
 
