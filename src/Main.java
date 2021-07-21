@@ -59,6 +59,18 @@ public class Main {
         d.DagMin(di,0);
          */
 
+        Digrafo di = new Digrafo(5,6);
+        di.vertices[0].add(new Arco(0,1,3));
+        di.vertices[0].add(new Arco(0,3,6));
+        di.vertices[1].add(new Arco(1,2,0));
+        di.vertices[1].add(new Arco(1,4,-2));
+        di.vertices[3].add(new Arco(3,1,-1));
+        di.vertices[3].add(new Arco(3,4,-7));
+        di.vertices[4].add(new Arco(4,2,3));
+
+        BellmanFord bf = new BellmanFord();
+        bf.bellman_ford(di, 0);
+
         System.out.println("Digrafo Atual: ");
         di.mostraDigrafo();
 
