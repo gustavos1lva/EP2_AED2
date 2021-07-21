@@ -15,8 +15,6 @@ public class BellmanFord {
 
         for (int k = 0; k < di.v; k++){
             for (vertice = 0; vertice < di.v; vertice++){
-
-
                 for (int l = 0; l < di.vertices[v = vertice].size(); l++) {
                     p = di.vertices[v = vertice].get(l);
                     w = p.verticeDestino;
