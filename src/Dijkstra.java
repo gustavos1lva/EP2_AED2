@@ -1,6 +1,6 @@
 public class Dijkstra{
 
-    public void Djikstra(Digrafo di, int s) {
+    public void Dijkstra(Digrafo di, int s) {
         int[] pais = new int[di.v];
         int[] custos = new int[di.v];
         int infinito = (di.k*di.v)+1;

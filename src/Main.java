@@ -1,79 +1,50 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        GERAR ALEATORIO
 
-        Digrafo di = new Digrafo(5);
-        di.insercaoAleatoria(0.2,4);
+        Scanner s = new Scanner(System.in);
 
-        System.out.println("Digrafo Atual: ");
-        di.mostraDigrafo();
+        System.out.println("Insira quantos vertices vc quer: ");
+        int vertices = s.nextInt();
+        Digrafo di = new Digrafo(vertices);
+        System.out.println("Insira o p desejado(entre 0 e 1): ");
+        double p = s.nextDouble();
+        System.out.println("Insira o peso maximo de arco: ");
+        int pesoArco = s.nextInt();
+        System.out.println("Insira o tipo de digrafo desejado: " + "\n" + "1: Normal " + "\n" + "2: DAG");
+        int tipo = s.nextInt();
 
-        Dijkstra dj = new Dijkstra();
-        System.out.println("-------------------------------------DEPOIS DO DIJKSTRA------------------------------------------");
-        dj.Djikstra(di,0);
-         */
+        switch (tipo) {
+            case 1 -> di.insercaoAleatoria(p, pesoArco);
+            case 2 -> di.insercaoAleatoriaDAG(p, pesoArco);
+        }
 
-
-        /*
-        DIJKSTRA!
-
-        Digrafo di = new Digrafo(6,7);
-        di.vertices[0].add(new Arco(0,2,7));
-        di.vertices[0].add(new Arco(0,4,4));
-        di.vertices[0].add(new Arco(0,3,2));
-        di.vertices[2].add(new Arco(2,4,1));
-        di.vertices[3].add(new Arco(3,4,1));
-        di.vertices[3].add(new Arco(3,5,3));
-        di.vertices[4].add(new Arco(4,1,4));
-        di.vertices[4].add(new Arco(4,5,1));
-        di.vertices[5].add(new Arco(5,1,2));
-        di.vertices[1].add(new Arco(1,2,0));
-         */
-
-        /*
-        TESTES DIJKSTRA
-        Dijkstra dj = new Dijkstra();
-        System.out.println("-------------------------------------DEPOIS DO DIJKSTRA------------------------------------------");
-        dj.Djikstra(di,0);
-         */
-
-        /*
-        DAGMIN!
-
-        Digrafo di = new Digrafo(6,7);
-        di.vertices[0].add(new Arco(0,2,2));
-        di.vertices[0].add(new Arco(0,4,3));
-        di.vertices[0].add(new Arco(0,3,4));
-        di.vertices[2].add(new Arco(2,1,1));
-        di.vertices[2].add(new Arco(2,4,-1));
-        di.vertices[3].add(new Arco(3,4,-2));
-        di.vertices[3].add(new Arco(3,5,1));
-        di.vertices[4].add(new Arco(4,1,0));
-        di.vertices[4].add(new Arco(4,5,1));
-        di.vertices[5].add(new Arco(5,1,2));
-
-        DagMin d = new DagMin();
-        d.DagMin(di,0);
-         */
-
-        Digrafo di = new Digrafo(5,6);
-        di.vertices[0].add(new Arco(0,1,3));
-        di.vertices[0].add(new Arco(0,3,6));
-        di.vertices[1].add(new Arco(1,2,0));
-        di.vertices[1].add(new Arco(1,4,-2));
-        di.vertices[3].add(new Arco(3,1,-1));
-        di.vertices[3].add(new Arco(3,4,-7));
-        di.vertices[4].add(new Arco(4,2,3));
-
-        BellmanFord bf = new BellmanFord();
-        bf.bellman_ford(di, 0);
-
-        System.out.println("Digrafo Atual: ");
-        di.mostraDigrafo();
-
+        System.out.println("Insira o numero da operação desejada: " + "\n"
+        + "1: Dijkstra" + "\n" + "2: DAGMin" + "\n" + "3: BellmanFord");
+        int ops = s.nextInt();
+        switch (ops) {
+            case 1 -> {
+                System.out.println("Insira o vertice inicial desejado para o caminho de Dijkstra: ");
+                int inicialDijkstra = s.nextInt();
+                Dijkstra dj = new Dijkstra();
+                dj.Dijkstra(di, inicialDijkstra);
+            }
+            case 2 -> {
+                System.out.println("Insira o vertice inicial desejado para o caminho de DAGMin: ");
+                int inicialDag = s.nextInt();
+                DagMin dag = new DagMin();
+                dag.DagMin(di, inicialDag);
+            }
+            case 3 -> {
+                System.out.println("Insira o vertice inicial desejado para o caminho de BellmanFord: ");
+                int inicialBell = s.nextInt();
+                BellmanFord bell = new BellmanFord();
+                bell.bellman_ford(di, inicialBell);
+            }
+        }
 
     }
 }
