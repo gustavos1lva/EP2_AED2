@@ -42,7 +42,7 @@ public class Main {
 
         /*
         DAGMIN!
-         */
+
         Digrafo di = new Digrafo(6,7);
         di.vertices[0].add(new Arco(0,2,2));
         di.vertices[0].add(new Arco(0,4,3));
@@ -57,6 +57,7 @@ public class Main {
 
         DagMin d = new DagMin();
         d.DagMin(di,0);
+         */
 
         System.out.println("Digrafo Atual: ");
         di.mostraDigrafo();
