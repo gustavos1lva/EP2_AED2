@@ -35,10 +35,5 @@ public class Dijkstra{
                 }
             }
         }
-
-        for (int j = 0; j < custos.length; j++){
-            System.out.println("Vertice: " + j + " tem custo: " + custos[j] + " do vertice inicial");
-        }
-
     }
 }
