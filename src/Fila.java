@@ -12,7 +12,7 @@ public class Fila {
     }
 
     public void insere(int vertice, int[] custos){
-        qp[vertice] = ++n;
+        qp[vertice] = n++;
         pq[n] = vertice;
         fixUp(n,custos);
     }
@@ -38,7 +38,7 @@ public class Fila {
     }
 
     public void fixUp(int m,int[] custos){
-        while(m > 0 && custos[pq[m/2]] > custos[pq[m]]){
+        while(m > 1 && custos[pq[m/2]] > custos[pq[m]]){
             exch(m/2,m,custos);
             m = m/2;
         }

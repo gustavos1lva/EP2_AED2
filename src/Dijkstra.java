@@ -37,11 +37,11 @@ public class Dijkstra{
         }
 
         for (int xc = 0; xc < custos.length; xc++){
-          //  System.out.println(custos[xc]);
+            System.out.println(custos[xc]);
         }
 
         for (int mx = 0; mx < pais.length; mx++){
-            System.out.println(pais[mx]);
+            //System.out.println(pais[mx]);
         }
     }
 }
