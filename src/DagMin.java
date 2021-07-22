@@ -26,5 +26,13 @@ public class DagMin {
             }
         }
 
+        /*
+        Print de custos LEMBRAR DE TIRAR NA ENTREGA.
+         */
+        for (int xc = 0; xc < custos.length; xc++){
+            System.out.print("Para " + xc + " O custo é: " + custos[xc] + ", ");
+        }
+        System.out.println(" ");
+
     }
 }

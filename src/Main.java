@@ -1,10 +1,14 @@
 import org.w3c.dom.ls.LSOutput;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
+    static int contAlg = 0;
+    public static boolean existeGrafo = false;
     public static void main(String[] args) {
 
+        /*
         Digrafo di = new Digrafo(6);
         di.vertices[0].add(new Arco(0,3,2));
         di.vertices[0].add(new Arco(0,2,7));
@@ -20,31 +24,33 @@ public class Main {
         Dijkstra ord = new Dijkstra();
         ord.Dijkstra(di, 0);
 
+         */
 
-        /*
+
+        Digrafo di = null;
         Scanner s = new Scanner(System.in);
+        System.out.println("Selecione um: " + "\n" + "1. Criar um digrafo" + "\n" + "2. Testar digrafo ja existente" + "\n" + "3. Encerrar o programa");
+        int oqFazer = s.nextInt();
+        while(oqFazer != 3) {
 
-        System.out.println("Insira quantos vertices vc quer: ");
-        int vertices = s.nextInt();
-        Digrafo di = new Digrafo(vertices);
-        System.out.println("Insira o p desejado(entre 0 e 1): ");
-        double p = s.nextDouble();
-        System.out.println("Insira o peso maximo de arco: ");
-        int pesoArco = s.nextInt();
-        System.out.println("Insira o tipo de digrafo desejado: " + "\n" + "1: Normal " + "\n" + "2: DAG");
-        int tipo = s.nextInt();
+            switch (oqFazer){
+                case 1:
+                    di = insercao(s);
+                    break;
+                case 2:
+                    testaAlg(s,di);
+            }
 
-        switch (tipo) {
-            case 1:
-                di.insercaoAleatoria(p, pesoArco);
-                break;
-            case 2:
-                di.insercaoAleatoriaDAG(p, pesoArco);
-                break;
+
+            System.out.println("Selecione um: " + "\n" + "1. Criar um digrafo" + "\n" + "2. Testar digrafo ja existente" + "\n" + "3. Encerrar o programa");
+            oqFazer = s.nextInt();
         }
 
+    }
+
+    public static void testaAlg(Scanner s, Digrafo di){
         System.out.println("Insira o numero da operação desejada: " + "\n"
-        + "1: Dijkstra" + "\n" + "2: DAGMin" + "\n" + "3: BellmanFord");
+                + "1: Dijkstra" + "\n" + "2: DAGMin" + "\n" + "3: BellmanFord");
         int ops = s.nextInt();
         switch (ops) {
             case 1:
@@ -66,9 +72,32 @@ public class Main {
                 bell.bellman_ford(di, inicialBell);
                 break;
         }
+    contAlg++;
+    }
 
-         */
+    public static Digrafo insercao(Scanner s){
+        System.out.println("Insira quantos vertices vc quer: ");
+        int vertices = s.nextInt();
+        Digrafo di = new Digrafo(vertices);
+        System.out.println("Insira o p desejado(entre 0 e 1): ");
+        double p = s.nextDouble();
+        System.out.println("Insira o peso maximo de arco: ");
+        int pesoArco = s.nextInt();
+        System.out.println("Insira o tipo de digrafo desejado: " + "\n" + "1: Normal " + "\n" + "2: DAG");
+        int tipo = s.nextInt();
 
+        switch (tipo) {
+            case 1:
+                di.insercaoAleatoria(p, pesoArco);
+                System.out.println("Digrafo criado!");
+                break;
+            case 2:
+                di.insercaoAleatoriaDAG(p, pesoArco);
+                System.out.println("DAG Criado!");
+                break;
+        }
+    existeGrafo = true;
+    return di;
     }
 
 }

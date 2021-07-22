@@ -36,9 +36,13 @@ public class Dijkstra{
             }
         }
 
+        /*
+        Print de custos LEMBRAR DE TIRAR NA ENTREGA.
+         */
         for (int xc = 0; xc < custos.length; xc++){
-            System.out.println(custos[xc]);
+            System.out.print("Para " + xc + " O custo é: " + custos[xc] + ", ");
         }
+        System.out.println(" ");
 
         for (int mx = 0; mx < pais.length; mx++){
             //System.out.println(pais[mx]);
