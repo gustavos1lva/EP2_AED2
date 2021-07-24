@@ -13,25 +13,6 @@ public class Main {
     public static boolean existeGrafo = false;
     public static void main(String[] args) {
 
-        /*
-        Digrafo di = new Digrafo(6);
-        di.vertices[0].add(new Arco(0,3,2));
-        di.vertices[0].add(new Arco(0,2,7));
-        di.vertices[0].add(new Arco(0,4,4));
-        di.vertices[2].add(new Arco(2,4,1));
-        di.vertices[3].add(new Arco(3,4,1));
-        di.vertices[3].add(new Arco(3,5,3));
-        di.vertices[4].add(new Arco(4,5,1));
-        di.vertices[4].add(new Arco(4,1,4));
-        di.vertices[5].add(new Arco(5,1,2));
-        di.vertices[1].add(new Arco(1,2,0));
-
-        Dijkstra ord = new Dijkstra();
-        ord.Dijkstra(di, 0);
-
-         */
-
-
         Digrafo di = null;
         Scanner s = new Scanner(System.in);
         System.out.println("Selecione um: " + "\n" + "1. Criar um digrafo" + "\n" + "2. Testar digrafo ja existente" + "\n" + "3. Encerrar o programa");
