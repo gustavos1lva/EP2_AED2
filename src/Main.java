@@ -57,19 +57,28 @@ public class Main {
                 System.out.println("Insira o vertice inicial desejado para o caminho de Dijkstra: ");
                 int inicialDijkstra = s.nextInt();
                 Dijkstra dj = new Dijkstra();
+                long start = System.currentTimeMillis();
                 dj.Dijkstra(di, inicialDijkstra);
+                long end = System.currentTimeMillis();
+                System.out.println("O tempo de execução foi: " + (end - start)/1000);
                 break;
             case 2:
                 System.out.println("Insira o vertice inicial desejado para o caminho de DAGMin: ");
                 int inicialDag = s.nextInt();
                 DagMin dag = new DagMin();
+                long startD = System.currentTimeMillis();
                 dag.DagMin(di, inicialDag);
+                long endD = System.currentTimeMillis();
+                System.out.println("O tempo de execução foi: " + (endD - startD)/1000);
                 break;
             case 3:
                 System.out.println("Insira o vertice inicial desejado para o caminho de BellmanFord: ");
                 int inicialBell = s.nextInt();
                 BellmanFord bell = new BellmanFord();
+                long startB = System.currentTimeMillis();
                 bell.bellman_ford(di, inicialBell);
+                long endB = System.currentTimeMillis();
+                System.out.println("O tempo de execução foi: " + (endB - startB)/1000);
                 break;
         }
     contAlg++;
