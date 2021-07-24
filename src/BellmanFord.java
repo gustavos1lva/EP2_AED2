@@ -1,3 +1,9 @@
+/*
+    EP2 AED2 - Turma 94 - Alexandre Freire
+    Gustavo Ryan Nascimento Silva - 11796785
+    Bruno Daniel Moreira Plada - 11796274
+ */
+
 public class BellmanFord {
     public void bellman_ford(Digrafo di, int v){
         int vertice, w;

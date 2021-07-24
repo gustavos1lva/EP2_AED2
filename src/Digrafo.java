@@ -1,3 +1,9 @@
+/*
+    EP2 AED2 - Turma 94 - Alexandre Freire
+    Gustavo Ryan Nascimento Silva - 11796785
+    Bruno Daniel Moreira Plada - 11796274
+ */
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;

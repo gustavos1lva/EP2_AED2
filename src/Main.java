@@ -1,5 +1,10 @@
-import org.w3c.dom.ls.LSOutput;
+/*
+    EP2 AED2 - Turma 94 - Alexandre Freire
+    Gustavo Ryan Nascimento Silva - 11796785
+    Bruno Daniel Moreira Plada - 11796274
+ */
 
+import org.w3c.dom.ls.LSOutput;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
